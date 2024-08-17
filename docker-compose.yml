@@ -1,0 +1,18 @@
+# https://bdc-stac.readthedocs.io/en/latest/installation.html
+# https://brazil-data-cube.github.io/tech-talks/tutorial-bdc.html
+# 
+
+version: "3"
+
+services:
+  # Postgis
+  postgis:
+    image: postgis/postgis:12-3.0
+    container_name: postgis
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "postgres"
+    ports:
+      - "5432:5432"
+    restart: "unless-stopped"
