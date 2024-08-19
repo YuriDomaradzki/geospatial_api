@@ -24,5 +24,5 @@ class GeometryModel(db.Model):
         return {
             "ID": self.id,
             "DESCRIPTION": self.description,
-            "GEOMETRY": self.geom
+            "GEOMETRY": str(self.geom)
         }
