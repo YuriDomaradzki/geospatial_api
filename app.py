@@ -14,6 +14,7 @@ from blocklist import BLOCKLIST
 from geospatial_api.models.db import db
 from geospatial_api.resources.geometry import blp as GeometryBlueprint
 from geospatial_api.resources.user import blp as UsersBlueprint
+from geospatial_api.resources.free_geocoding import blp as FreeGeoCodingBlueprint
 
 
 def create_app():
@@ -101,6 +102,7 @@ def create_app():
     # Registrando as interações dos usuários com a API
     api.register_blueprint(GeometryBlueprint)
     api.register_blueprint(UsersBlueprint)
+    api.register_blueprint(FreeGeoCodingBlueprint)
 
     return app
 

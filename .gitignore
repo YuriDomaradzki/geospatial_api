@@ -1,1 +1,6 @@
+__pycache__/
+*.pyc
+
+# Ignorar outros arquivos e diretórios
 .env
+*.log
