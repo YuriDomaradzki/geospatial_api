@@ -1,5 +1,6 @@
 # third-party libraries
 from geoalchemy2 import Geometry
+from geoalchemy2.shape import to_shape 
 
 # custom libraries
 from geospatial_api.models.db import db
@@ -24,5 +25,5 @@ class GeometryModel(db.Model):
         return {
             "ID": self.id,
             "DESCRIPTION": self.description,
-            "GEOMETRY": str(self.geom)
+            "GEOMETRY": to_shape(self.geom).wkt
         }
