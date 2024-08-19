@@ -2,7 +2,7 @@
 from geospatial_api.models.db import db
 
 
-class UserModel(db.Model):
+class UsersModel(db.Model):
 
     __tablename__ = 'users'
 
@@ -37,7 +37,7 @@ class UserModel(db.Model):
         -------
             Returns True if the username already exists, otherwise returns False.
         """
-        existing_user = cls.query.filter_by(USERNAME=username).first()
+        existing_user = cls.query.filter_by(username=username).first()
         if existing_user:
             return True
         return False

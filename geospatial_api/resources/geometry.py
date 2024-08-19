@@ -9,6 +9,8 @@ from flask_smorest import Blueprint, abort
 
 from sqlalchemy import func
 
+from flask_jwt_extended import jwt_required
+
 from sqlalchemy.exc import IntegrityError
 from werkzeug.exceptions import BadRequest, Unauthorized
 
@@ -52,7 +54,7 @@ class GeometryResource(MethodView):
 
         return True
 
-
+    @jwt_required()
     def post(self) -> dict: 
         """
             Creates a new geometry based on the description and geom parameters.
@@ -96,7 +98,7 @@ class GeometryResource(MethodView):
         except Exception as e:
             abort(500, message=f"An error has occurred: {str(e)}")
 
-
+    @jwt_required()
     def get(self) -> dict:
         """
             Returns a list of geometries based on the description and geom parameters.
@@ -159,7 +161,7 @@ class GeometryResource(MethodView):
         except Exception as e:
             abort(500, message=f"An error has occurred: {str(e)}")
 
-
+    @jwt_required()
     def put(self) -> dict:
         """
             Creates a new geometry based on the description and geom parameters.
@@ -211,7 +213,7 @@ class GeometryResource(MethodView):
         except Exception as e:
             abort(500, message=f"An error has occurred: {str(e)}")
 
-
+    @jwt_required()
     def delete(self) -> dict:
         """
             Deletes a geometry based on the id parameter.
