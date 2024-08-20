@@ -13,6 +13,7 @@ run:
 build:
 	docker build -t geospatial-api . && \
 	python init_env.py && \
+	docker compose -f docker-compose.yml up -d && \ 
 	docker run -d --name geo-api -p 5000:5000 geospatial-api && \
 	make create_db
 
