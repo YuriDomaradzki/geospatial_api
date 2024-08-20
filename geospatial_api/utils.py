@@ -1,5 +1,4 @@
 
-
 def string_is_alphanumeric(text: str) -> bool:
     """
         Verifies if the string is alphanumeric or not.

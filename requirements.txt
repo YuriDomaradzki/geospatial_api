@@ -3,6 +3,7 @@ blinker==1.8.2
 certifi==2024.7.4
 charset-normalizer==3.3.2
 click==8.1.7
+docker==7.1.0
 Flask==3.0.3
 Flask-JWT-Extended==4.6.0
 flask-smorest==0.44.0
@@ -14,12 +15,14 @@ itsdangerous==2.2.0
 Jinja2==3.1.4
 MarkupSafe==2.1.5
 marshmallow==3.21.3
+numpy==2.1.0
 packaging==24.1
 passlib==1.7.4
 psycopg2==2.9.9
 PyJWT==2.9.0
 python-dotenv==1.0.1
 requests==2.32.3
+shapely==2.0.5
 SQLAlchemy==2.0.32
 typing_extensions==4.12.2
 urllib3==2.2.2

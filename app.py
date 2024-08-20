@@ -23,8 +23,9 @@ def create_app() -> Flask:
     -------
         The Flask app.
     """
+
     env_file_path = Path(__file__).parent / '.env'
-    load_dotenv(dotenv_path=env_file_path)
+    load_dotenv()
 
     app = Flask(__name__)
 

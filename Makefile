@@ -12,7 +12,7 @@ run:
 
 build:
 	docker build -t geospatial-api . && \
-	docker compose -f docker-compose.yml up -d && \ 
+	python init_env.py && \
 	docker run -d --name geo-api -p 5000:5000 geospatial-api && \
 	make create_db
 
@@ -28,10 +28,6 @@ create_db:
 make tests:
 	cd .. && \
 	python -m unittest geospatial_api.tests.tests
-
-make test_adress:
-	cd .. && \
-	python -m unittest geospatial_api.tests.test_adress
 
 install_docker:
 	sudo apt update && \
