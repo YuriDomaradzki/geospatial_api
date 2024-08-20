@@ -25,9 +25,9 @@ create_db:
 		echo "Database geodata already exists."; \
 	fi
 
-make test_geometry:
+make tests:
 	cd .. && \
-	python -m unittest geospatial_api.tests.test_geometry
+	python -m unittest geospatial_api.tests.tests
 
 make test_adress:
 	cd .. && \

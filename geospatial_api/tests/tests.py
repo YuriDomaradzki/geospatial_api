@@ -220,5 +220,62 @@ class TestGeometryResource(unittest.TestCase):
         response = self.client.delete(f'{self.base_url}geometry?id=99')
         self.assertEqual(response.status_code, 404)
 
+    # ---------------------------------------------------------------------------
+    # TESTING GET ADDRESS
+    # ---------------------------------------------------------------------------
+
+    def test_address_with_valid_placename(self):
+        """ 
+        Test if the API returns a 200 response when a valid placename is provided.
+
+        Returns
+        -------
+        A 200 response if the address is successfully retrieved from the geocoding service.
+        """
+        payload = {'api_key': '66c3523802860766751470fxoc40658'}
+        response = self.client.get(f'{self.base_url}adresses?placename=Statue+of+Liberty', json=payload)
+        self.assertEqual(response.status_code, 200)
+
+    def test_address_with_invalid_placename(self):
+        """ 
+        Test if the API returns a 404 response when an invalid placename is provided.
+
+        Returns
+        -------
+        A 404 response if the address is not found in the geocoding service.
+        """
+        payload = {'api_key': '66c3523802860766751470fxoc40658'}
+        response = self.client.get(f'{self.base_url}adresses?placename=Invalid+Placename', json=payload)
+        self.assertEqual(response.status_code, 404)
+
+    # ---------------------------------------------------------------------------
+    # TESTING GET INFO BY COORDINATES
+    # ---------------------------------------------------------------------------
+
+    def test_info_by_coordinates(self):
+        """
+            Test if the API returns a 200 response when a valid coordinates are provided.
+
+        Returns
+        -------
+            A 200 response if the info is successfully retrieved from the geocoding service.
+        """
+        payload = {'api_key': '66c3523802860766751470fxoc40658'}
+        response = self.client.get(f'{self.base_url}coordinates?lat=40.7558017&lon=-73.9787414', json=payload)
+        self.assertEqual(response.status_code, 200)
+
+    def test_info_by_coordinates_invalid_coordinates(self):
+        """
+            Test if the API returns a 400 response when an invalid coordinates are provided.
+
+        Returns
+        -------
+            A 400 response if the coordinates are invalid.
+        """
+        payload = {'api_key': '66c3523802860766751470fxoc40658'}
+        response = self.client.get(f'{self.base_url}coordinates?lat=invalid&lon=invalid', json=payload)
+        self.assertEqual(response.status_code, 400)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

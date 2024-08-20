@@ -406,78 +406,28 @@ Nesta seção, você encontrará os testes relacionados às funcionalidades da A
 ### **1.** Testar as funcionalidades de geometry
 
 A seguir, estão alguns cenários de teste para validar as funcionalidades relacionadas as geometrias:
-
- - Validação da criação de uma nova geometria com dados válidos (test_post_valid_geometry);
- - Verificação do retorno adequado quando nenhuma informação de campo é fornecida (test_post_none_field_information);
- - Checagem da resposta para dados inválidos fornecidos na postagem (test_post_invalid_field_information);
+ - Adição de Geometria;
+    - Validação da criação de uma nova geometria com dados válidos (test_post_valid_geometry);
+    - Verificação do retorno adequado quando nenhuma informação de campo é fornecida (test_post_none_field_information);
+    - Checagem da resposta para dados inválidos fornecidos na postagem (test_post_invalid_field_information);
  - Consulta de Geometria;
- - Verificação da obtenção de informações corretas com um ID válido (test_geometry_with_valid_id);
- - Validação da resposta ao consultar com um ID em branco (test_geometry_with_blank_id);
- - Verificação da resposta para um ID inválido (test_geometry_with_invalid_id);
- - Checagem da resposta ao consultar com um ID inexistente (test_geometry_with_nonexistent_id);
+    - Verificação da obtenção de informações corretas com um ID válido (test_geometry_with_valid_id);
+    - Validação da resposta ao consultar com um ID em branco (test_geometry_with_blank_id);
+    - Verificação da resposta para um ID inválido (test_geometry_with_invalid_id);
+    - Checagem da resposta ao consultar com um ID inexistente (test_geometry_with_nonexistent_id);
  - Atualização de Geometria;
- - Verificação da atualização bem-sucedida com um ID válido (test_put_valid_geometry);
- - Checagem da resposta para tentativa de atualização com um ID inválido (test_put_invalid_geometry);
- - Exclusão de Geometria;
- - Validação da exclusão bem-sucedida com um ID válido (test_delete_valid_geometry);
- - Verificação da resposta para tentativa de exclusão com um ID inválido (test_delete_invalid_geometry);
+    - Verificação da atualização bem-sucedida com um ID válido (test_put_valid_geometry);
+    - Checagem da resposta para tentativa de atualização com um ID inválido (test_put_invalid_geometry);
+ - Exclusão de Geometria:
+    - Validação da exclusão bem-sucedida com um ID válido (test_delete_valid_geometry);
+    - Verificação da resposta para tentativa de exclusão com um ID inválido (test_delete_invalid_geometry);
+ - Consulta de endereços utilizando a API do FreeGeoCoding:
+    - Verificação da obtenção de informações corretas com um nome de local válido (test_address_with_valid_placename);
+    - Validação da resposta ao consultar com um nome de local inválido (test_address_with_invalid_placename);
+ - Consulta de endereços pela coordenada utilizando a API do FreeGeoCoding:
+    - Verificação da obtenção de informações corretas com coordenadas válidas (test_info_by_coordinates);
+    - Validação da resposta ao consultar com coordenadas inválidas (test_info_by_coordinates_invalid_coordinates).
 
- Utilize o comando `make test_patient` para executar os casos de teste:
+ Utilize o comando `make tests` para executar os casos de teste:
 
-    make test_patient
-
-<a id="test_pharmacies"></a>
-### **2.** Testar as funcionalidades de Pharmacies
-
-A seguir, estão alguns cenários de teste para validar as funcionalidades relacionadas às farmácies:
-
- - Listagem de Farmácias para garantir a obtenção de uma lista válida ao estar autenticado.
- - Obtenção de Farmácia por Nome Válido para verificar a obtenção de informações corretas com um nome válido e rejeição de nomes inválidos ao estar autenticado.
- - Obtenção de Farmácia por Nome Inválido para validar a impossibilidade de obter informações de farmácias com nome inválido, mesmo estando autenticado.
- - Obtenção de Farmácia por Cidade Válida para assegurar a obtenção de informações corretas por uma cidade válida ao estar autenticado.
- - Obtenção de Farmácia por Cidade Inválida para verificar a impossibilidade de obter informações de farmácias com cidade inválida, mesmo estando autenticado.
- - Obtenção de Farmácia por Nome e Cidade Válidos para garantir a obtenção de informações corretas com nome e cidade válidos ao estar autenticado.
- - Obtenção de Farmácia por Cidade Inválida e Nome Válido para validar a impossibilidade de obter informações de farmácias com cidade inválida, mesmo com nome válido, estando autenticado.
- - Obtenção de Farmácia por Cidade Válida e Nome Inválido para validar a impossibilidade de obter informações de farmácias com nome inválido, mesmo com cidade válida, estando autenticado.
-
- Utilize o comando `make test_pharmacy` para executar os casos de teste:
-
-    make test_pharmacy
-
-
-<a id="test_transactions"></a>
-### **3.** Testar as funcionalidades de Transactions
-
-A seguir, estão alguns cenários de teste para validar as funcionalidades relacionadas as transações:
-
- - Listagem de Transações para garantir a obtenção de uma lista válida ao estar autenticado.
- - Obtenção de Transações por Nome de Farmácia Válido para verificar a obtenção de informações corretas com um nome de farmácia válido e rejeição de nomes inválidos ao estar autenticado.
- - Obtenção de Transações por Nome de Farmácia Inválido para validar a impossibilidade de obter informações de transações com nome de farmácia inválido, mesmo estando autenticado.
- - Obtenção de Transações por Nome de Farmácia e Data de Transação Válidos para garantir a obtenção de informações corretas com nome de farmácia e data válidos ao estar autenticado.
- - Obtenção de Transações por Nome de Farmácia Inválido e Data de Transação Válida para validar a impossibilidade de obter informações de transações com nome de farmácia inválido, mesmo com data válida, estando autenticado.
-
- Utilize o comando `make test_transactions` para executar os casos de teste:
-
-    make test_transactions
-
-<a id="test_user"></a>
-### **4.** Testar as funcionalidades de User
-
-A seguir, estão alguns cenários de teste para validar as funcionalidades relacionados aos usuários:
-
- - Obtenção de Informações do Usuário com Nome de Usuário Válido: Garante que seja possível obter informações do usuário com um nome de usuário válido ao estar autenticado.
- - Obtenção de Informações do Usuário com Nome de Usuário Inválido: Garante que não seja possível obter informações do usuário com um nome de usuário inválido ao estar autenticado.
- - Logout: Verifica se o processo de logout ocorre corretamente, encerrando a sessão do usuário autenticado.
- - Login com Nome de Usuário Válido e Senha Inválida: Valida que não seja possível realizar o login com um nome de usuário válido e senha inválida.
- - Login com Nome de Usuário Inválido e Senha Válida: Valida que não seja possível realizar o login com um nome de usuário inválido e senha válida.
-
- Utilize o comando `make test_user` para executar os casos de teste:
-
-    make test_user
-
-<a id="code_patterns"></a>
-## Garantir Padrões e estilo de códigos de forma automatizada
-
-A utilização do comando `make lint` é uma prática fundamental para garantir a padronização e o estilo do código de maneira automatizada. Este comando incorpora diversas ferramentas e processos que analisam o código-fonte, assegurando sua conformidade com as diretrizes estabelecidas. Para utilizá-lo, entre no diretório raiz do projeto e execute o seguinte comando:
-
-    make lint
+    make tests
