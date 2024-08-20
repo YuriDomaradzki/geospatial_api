@@ -59,6 +59,13 @@ Navegue até a pasta do código-fonte do projeto utilizando o comando `cd`. Cert
 
     cd geospatial_api
 
+Antes de instalar em modo de desenvolvimento ou produção, é necessário criar um arquivo `.env`na pasta raiz do diretório (no mesmo nível do app.py) com as seguintes informações:
+
+	DATABASE_USER
+ 	DATABASE_PASSWORD
+  	DATABASE_HOST
+   	DATABASE_NAME
+
 <a id="instalation_dev_mode"></a>
 ## Instalação em modo desenvolvedor - GitHub 
 
